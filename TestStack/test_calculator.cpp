@@ -48,7 +48,7 @@ TEST(TCalculator, check_expression_return_true_when_the_number_of_brackets_is_co
     
     TCalculator calc(a);
     bool check;
-    ASSERT_NO_THROW(check=calc.CheckExpression());
+    ASSERT_NO_THROW(check=calc.expression());
     EXPECT_EQ(1, check);
 }
 TEST(TCalculator, check_expression_return_false_when_the_number_of_brackets_is_incorrect)
@@ -58,7 +58,7 @@ TEST(TCalculator, check_expression_return_false_when_the_number_of_brackets_is_i
 
     TCalculator calc(a);
     bool check;
-    ASSERT_NO_THROW(check = calc.CheckExpression());
+    ASSERT_NO_THROW(check = calc.expression());
     EXPECT_EQ(0, check);
 }
 TEST(TCalculator, can_calculat_if_the_number_of_brackets_is_correct)

@@ -1,6 +1,7 @@
 #include "../my_stack/TStack.h"
 
 #include "gtest.h"
+using namespace ArrayStack;
 
 TEST(TStack, can_create_stack_with_positive_size)
 {
@@ -107,4 +108,5 @@ TEST(TStack, return_false_when_use_Empty_on_not_empty_stack)
     bool b1 = st.Empty();
     EXPECT_EQ(0, b1);
 }
+
 

@@ -3,7 +3,7 @@
 #include <cmath>
 #include <string.h>
 #include "TStack.h"
-
+using namespace ArrayStack;
 using namespace std;
 
 class TCalculator
@@ -25,7 +25,7 @@ class TCalculator
 	}
 	void CurrIndostfix();
 public:
-	TCalculator(string& str) { inf = str; };
+	TCalculator(string& str) :inf(str) { CurrIndostfix(); };
 	bool expression();
 	void set_infix(string str);
 	string get_postfix();

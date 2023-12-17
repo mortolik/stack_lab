@@ -130,6 +130,7 @@
     <ClCompile Include="..\my_stack\Calculator.cpp" />
     <ClCompile Include="gtest-all.cc" />
     <ClCompile Include="test_calculator.cpp" />
+    <ClCompile Include="test_listStack.cpp" />
     <ClCompile Include="test_main.cpp" />
     <ClCompile Include="test_stack.cpp" />
   </ItemGroup>
