@@ -114,7 +114,6 @@ namespace ArrayStack
 
 namespace ListStack
 {
-
 	using namespace std;
 	template <class T>
 	struct TNode
