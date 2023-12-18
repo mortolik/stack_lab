@@ -130,7 +130,7 @@ TEST(TCalculator, cant_calculat_if_the_number_of_brackets_is_incorrect)
 //{
 //    Tstack<int> st(3);
 //
-//    bool b1 = st.Empty();
+//    bool b1 = st.IsEmpty();
 //    EXPECT_EQ(1, b1);
 //}
 //TEST(Tstack, return_false_when_use_Empty_on_not_empty_stack)
@@ -139,6 +139,6 @@ TEST(TCalculator, cant_calculat_if_the_number_of_brackets_is_incorrect)
 //    st.Push(1);
 //    st.Push(1);
 //
-//    bool b1 = st.Empty();
+//    bool b1 = st.IsEmpty();
 //    EXPECT_EQ(0, b1);
 //}

@@ -50,7 +50,7 @@ namespace ArrayStack
 				pMem[i] = s.pMem[i];
 			}
 		}
-		bool Empty()
+		bool IsEmpty()
 		{
 			return CurrInd == -1;
 		}
@@ -69,9 +69,9 @@ namespace ArrayStack
 		}
 		T Pop()
 		{
-			if (this->Empty() == true)
+			if (this->IsEmpty() == true)
 			{
-				throw("Stack is empty");
+				throw("Stack is IsEmpty");
 			}
 			CurrInd--;
 			return pMem[CurrInd + 1];
@@ -83,12 +83,12 @@ namespace ArrayStack
 		T IndEl()
 		{
 			if (CurrInd == -1)
-				throw ("Stack is empty");
+				throw ("Stack is IsEmpty");
 			return pMem[CurrInd];
 		}
 		void Clear()
 		{
-			while (!this->Empty())
+			while (!this->IsEmpty())
 			{
 				this->Pop();
 			}
@@ -97,7 +97,7 @@ namespace ArrayStack
 		{
 			if (CurrInd == -1)
 			{
-				std::cout << "stack is empty" << std::endl;
+				std::cout << "stack is IsEmpty" << std::endl;
 			}
 			std::cout << '(';
 			for (int i = 0; i <= CurrInd; i++)

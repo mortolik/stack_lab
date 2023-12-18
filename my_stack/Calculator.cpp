@@ -3,7 +3,7 @@
 
 bool TCalculator::expression()
 {
-    if (c.Empty() == false)
+    if (c.IsEmpty() == false)
     {
         this->c.Clear();
     }
@@ -16,7 +16,7 @@ bool TCalculator::expression()
         }
         if (inf[i] == ')')
         {
-            if (!c.Empty())
+            if (!c.IsEmpty())
             {
                 c.Pop();
             }
@@ -24,7 +24,7 @@ bool TCalculator::expression()
                 res = 1;
         }
     }
-    if (!c.Empty())
+    if (!c.IsEmpty())
         res = 1;
     if (res == 0)
     {
@@ -37,120 +37,120 @@ bool TCalculator::expression()
 void TCalculator::set_infix(std::string str)
 {
     inf = str;
-}
+}/*
 
 std::string TCalculator::get_postfix()
 {
     return postf;
-}
+}*/
 
 std::string TCalculator::get_infix()
 {
     return inf;
 }
 
-double TCalculator::CalcPostfix()
-{
-    if (d.Empty() == false)
-    {
-        this->d.Clear();
-    }
-    for (int i = 0; i < postf.length(); i++)
-    {
-        if (postf[i] >= '0' && postf[i] <= '9')
-        {
-            d.Push(postf[i] - '0');
-        }
-        
-        
-        if ((postf[i] == '+') || (postf[i] == '-') || (postf[i] == '*') || (postf[i] == '/') || (postf[i] == '^'))
-        {
-                double x1 = 0; double x2 = 0;double  y = 0;
-                if (d.Empty() == false)
-                {
-                    x2 = d.Pop();
-                }
-                if (d.Empty() == false)
-                {
-                    x1 = d.Pop();
-                }
-                if (postf[i] == '+')
-                    y = x1 + x2;
-                if (postf[i] == '-')
-                    y = x1 - x2;
-                if (postf[i] == '*')
-                    y = x1 * x2;
-                if (postf[i] == '/')
-                    y = x1 / x2;
-                if (postf[i] == '^')
-                    y = pow(x1, x2);
+//double TCalculator::CalcPostfix()
+//{
+//    if (d.IsEmpty() == false)
+//    {
+//        this->d.Clear();
+//    }
+//    for (int i = 0; i < postf.length(); i++)
+//    {
+//        if (postf[i] >= '0' && postf[i] <= '9')
+//        {
+//            d.Push(postf[i] - '0');
+//        }
+//        
+//        
+//        if ((postf[i] == '+') || (postf[i] == '-') || (postf[i] == '*') || (postf[i] == '/') || (postf[i] == '^'))
+//        {
+//                double x1 = 0; double x2 = 0;double  y = 0;
+//                if (d.IsEmpty() == false)
+//                {
+//                    x2 = d.Pop();
+//                }
+//                if (d.IsEmpty() == false)
+//                {
+//                    x1 = d.Pop();
+//                }
+//                if (postf[i] == '+')
+//                    y = x1 + x2;
+//                if (postf[i] == '-')
+//                    y = x1 - x2;
+//                if (postf[i] == '*')
+//                    y = x1 * x2;
+//                if (postf[i] == '/')
+//                    y = x1 / x2;
+//                if (postf[i] == '^')
+//                    y = pow(x1, x2);
+//
+//                d.Push(y);
+//
+//        }
+//        
+//    }
+//    double res;
+//    if(d.IsEmpty()==false)
+//    {
+//        res = d.Pop();
+//    }
+//    else
+//    {
+//        throw "IsEmpty stack.";
+//    }
+//
+//    
+//    if (!d.IsEmpty())
+//    {
+//        throw "Any problems with brackets.";
+//    }
+//   return res;
+//}
 
-                d.Push(y);
-
-        }
-        
-    }
-    double res;
-    if(d.Empty()==false)
-    {
-        res = d.Pop();
-    }
-    else
-    {
-        throw "Empty stack.";
-    }
-
-    
-    if (!d.Empty())
-    {
-        throw "Any problems with brackets.";
-    }
-   return res;
-}
-
-void TCalculator::CurrIndostfix()
-{
-    if (c.Empty() == false)
-    {
-        this->c.Clear();
-    }
-    std::string str = '(' + inf + ')';
-    for (int i = 0; i < str.size(); i++)
-    {
-        if (str[i] == '(')
-        {
-            c.Push('(');
-        }
-        if (str[i] >= '0' && str[i] <= '9')
-        {
-            postf += str[i];
-        }
-        if (str[i] == ')')
-        {
-            char opelement = c.Pop();
-            while (opelement!='(')
-            {
-                postf += opelement;
-                opelement = c.Pop();
-            }
-        }
-        if ((str[i] == '+') || (str[i] == '-') || (str[i] == '*') || (str[i] == '/') || (str[i] == '^'))
-        {
-            char opelement = c.Pop();
-            if (prioritet(opelement) >= prioritet(str[i]))
-            {
-                postf += opelement;
-                opelement = c.Pop();
-            }
-            else
-            {
-                c.Push(opelement);
-            }
-            c.Push(str[i]);
-        }
-    }
-
-}
+//void TCalculator::CurrIndostfix()
+//{
+//    if (c.IsEmpty() == false)
+//    {
+//        this->c.Clear();
+//    }
+//    std::string str = '(' + inf + ')';
+//    for (int i = 0; i < str.size(); i++)
+//    {
+//        if (str[i] == '(')
+//        {
+//            c.Push('(');
+//        }
+//        if (str[i] >= '0' && str[i] <= '9')
+//        {
+//            postf += str[i];
+//        }
+//        if (str[i] == ')')
+//        {
+//            char opelement = c.Pop();
+//            while (opelement!='(')
+//            {
+//                postf += opelement;
+//                opelement = c.Pop();
+//            }
+//        }
+//        if ((str[i] == '+') || (str[i] == '-') || (str[i] == '*') || (str[i] == '/') || (str[i] == '^'))
+//        {
+//            char opelement = c.Pop();
+//            if (prioritet(opelement) >= prioritet(str[i]))
+//            {
+//                postf += opelement;
+//                opelement = c.Pop();
+//            }
+//            else
+//            {
+//                c.Push(opelement);
+//            }
+//            c.Push(str[i]);
+//        }
+//    }
+//
+//}
 double TCalculator::calc()
 {
     string str = "(";
@@ -206,7 +206,7 @@ double TCalculator::calc()
                         res = pow(op2, op1);
                         break;
                     default:
-                        if (c.Empty()) throw - 1;
+                        if (c.IsEmpty()) throw - 1;
                     }
                     d.Push(res);
                 }
@@ -241,7 +241,7 @@ double TCalculator::calc()
                         res = pow(op2, op1);
                         break;
                     default:
-                        if (c.Empty()) throw - 1;
+                        if (c.IsEmpty()) throw - 1;
                     }
                     d.Push(res);
                 }

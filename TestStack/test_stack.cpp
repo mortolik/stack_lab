@@ -25,7 +25,7 @@ TEST(TStack, new_stack_is_empty)
 {
     TStack<int> st(3);
 
-    int status = st.Empty();
+    int status = st.IsEmpty();
 
   EXPECT_EQ(1, status);
 }
@@ -96,7 +96,7 @@ TEST(TStack, return_true_when_use_Empty_on_empty_stack)
 {
     TStack<int> st(3);
    
-    bool b1 = st.Empty();
+    bool b1 = st.IsEmpty();
     EXPECT_EQ(1, b1);
 }
 TEST(TStack, return_false_when_use_Empty_on_not_empty_stack)
@@ -105,7 +105,7 @@ TEST(TStack, return_false_when_use_Empty_on_not_empty_stack)
     st.Push(1);
     st.Push(1);
 
-    bool b1 = st.Empty();
+    bool b1 = st.IsEmpty();
     EXPECT_EQ(0, b1);
 }
 
