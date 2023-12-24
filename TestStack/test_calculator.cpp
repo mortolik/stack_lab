@@ -2,6 +2,13 @@
 
 #include "gtest.h"
 
+TEST(TCalculator, can_solve_big_string)
+{
+    std::string a = "((((2.0+3)*5)/4)^7)-12.3";
+    TCalculator c(a);
+    double x = pow( (((2.0 + 3) * 5) / 4) , 7) - 12.3;
+    EXPECT_EQ(c.calc(), x);
+}
 TEST(TCalculator, can_create_calculator_with_positive_size_of_str)
 {
     std::string a = "1+1";
