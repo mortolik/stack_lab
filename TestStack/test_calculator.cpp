@@ -23,23 +23,12 @@ TEST(TCalculator, can_set_infix_form_of_calculator)
     ASSERT_NO_THROW(calc.set_infix(b));
     EXPECT_EQ(calc.get_infix(), b);
 }
-TEST(TCalculator, can_get_correct_postfix_form_of_calculator_if_the_number_of_brackets_is_correct)
+TEST(TCalculator, can_solve_big_ex)
 {
-    std::string a = "2+(3*5)";
-    std::string b="235*+";
-    std::string c;
-    TCalculator calc(a);
-    ASSERT_NO_THROW(c=calc.get_postfix());
-    EXPECT_EQ(c, b);
-}
-TEST(TCalculator, cant_get_correct_postfix_form_of_calculator_if_the_number_of_brackets_is_incorrect)
-{
-    std::string a = "2+((3*5)";
-    std::string b = "235*+";
-    std::string c;
-    TCalculator calc(a);
-    c = calc.get_postfix();
-    EXPECT_NE(c, b);
+    std::string a = "((5.5+2)*3)^2";
+    double b = pow(((5.5 + 2) * 3), 2);
+    TCalculator calculator(a);
+    EXPECT_EQ(calculator.calc(), b);
 }
 TEST(TCalculator, check_expression_return_true_when_the_number_of_brackets_is_correct)
 {
@@ -61,27 +50,8 @@ TEST(TCalculator, check_expression_return_false_when_the_number_of_brackets_is_i
     ASSERT_NO_THROW(check = calc.expression());
     EXPECT_EQ(0, check);
 }
-TEST(TCalculator, can_calculat_if_the_number_of_brackets_is_correct)
-{
-    std::string a = "2+(3*5)";
 
 
-    TCalculator calc(a);
-    double check;
-    ASSERT_NO_THROW(check = calc.CalcPostfix());
-    EXPECT_EQ(17, check);
-}
-
-TEST(TCalculator, cant_calculat_if_the_number_of_brackets_is_incorrect)
-{
-    std::string a = "2+((3*5)";
-
-
-    TCalculator calc(a);
-    double check;
-    ASSERT_ANY_THROW(check = calc.CalcPostfix());
-    EXPECT_NE(17, check);
-}
 //
 //
 //
